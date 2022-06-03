@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
 
-function App() {
+import { Container } from 'react-bootstrap'
+import { Route, Routes } from 'react-router-dom'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import HomeScreen from './screens/HomeScreen'
+import SignupScreen from './screens/SignupScreen'
+import LoginScreen from './screens/LoginScreen'
+import UserScreen from './screens/UserScreen'
+import LogoutScreen from './screens/LogoutScreen'
+import CreateIssueScreen from './screens/CreateIssueScreen'
+import ListIssueScreen from './screens/ListIssueScreen'
+import EditIssueScreen from './screens/EditIssueScreen'
+function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Header/>
+        <main>
+          <Container>
+            <Routes>
+
+              <Route path="/" element={<HomeScreen/>} />
+
+              <Route path="/signup" element={<SignupScreen/>} />
+
+              <Route path="/login" element={<LoginScreen/>} />
+
+              <Route path="/users" element={<UserScreen/>} />
+
+              <Route path="/logout" element={<LogoutScreen/>} />
+
+              <Route path="/issues" element={<ListIssueScreen/>} />
+
+              <Route path="/issues/create" element={<CreateIssueScreen/>} />
+
+              <Route path="/issues/edit" element={<EditIssueScreen/>} />
+
+            </Routes>
+          </Container>
+        </main>
+        <Footer/>
+    </>
+
+  )
 }
 
-export default App;
+export default App
